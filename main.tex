@@ -43,6 +43,86 @@ Let \(\Omega_0 \subset M\) be an isoperimetric domain at time \(t = t_0\) so tha
 I_{t_0} (\abs{\Omega_0}_{t_0}) = \abs{\bdry{\Omega_0}}_{t_0}.
 \]
 
+\subsection{Variation Formulae}
+\label{subsec:iso_diff_ineq_variation}
+
+Let also \(\Omega_u\) denote a smooth variation of \(\Omega_0\). That is, there exists an \(\epsilon > 0\) and a smooth map \(\phi: \Omega_0 \times (-\epsilon, \epsilon) \to M\) such that, writing \(\phi_u(\cdot) = \phi(\cdot, u)\) and \(\Omega_u = \phi_u(\Omega_0)\), we have \(\phi_0\) is the inclusion \(\Omega_0 \to M\) and for each \(u\), \(\phi_u\) is an embedding. Let us also write \(V = \phi_{\star} \partial_u\) for the variation vector field and \(\phi = g_{t_0} (V, \nu)\) for the normal component where \(\nu\) is the outer unit normal normal vector field to \(\bdry{\Omega_0}\). We assume that \(\phi \equiv 1\).
+
+With our assumptions, the standard first variation formulae at \(u = 0\) for volume and perimeter read,
+\[
+\partial_u \abs{\Omega_u} = \int_{\bdry{\Omega_0}} \sigma = \abs{\bdry{\Omega_0}}, \quad \partial_u \abs{\bdry{\Omega_u}} = \int_{\bdry{\Omega_0}} H \sigma = H_0 \abs{\bdry{\Omega_0}}
+\]
+where \(H\) is the mean curvature of \(\bdry{\Omega_0}\) which is constant \(H \equiv H_0\) since \(\Omega_0\) is isoperimetric. The second variations of perimeter which are
+\[
+\partial_u^2 \abs{\Omega_u} = H_0 \abs{\bdry{\Omega_0}}
+\]
+and
+\[
+\partial_u^2 \abs{\bdry{\Omega_u}} = H_0^2 \abs{\bdry{\Omega_0}} - \int_{\bdry{\Omega_0}} \abs{A}^2 + \ric(\nu) \sigma.
+\]
+
+The time variation of \(\abs{\Omega_0}\) may be computed from \(\partial_t \mu = \tfrac{1}{2} \Tr (g^{-1} \otimes 2X)\mu\),
+\[
+\partial_t \abs{\Omega_0} = \int_{\Omega_0} \Tr_g X \mu.
+\]
+
+\begin{lemma}
+\[
+\partial_t \abs{\bdry{\Omega_u}} = \int_{\bdry{\Omega_0}} \Tr_g X - X(\nu, \nu) \sigma.
+\]
+\end{lemma}
+
+\begin{proof}
+We use the definition,
+\[
+\sigma = \intprod_{\nu} \mu = \Tr \nu \otimes \mu.
+\]
+Then,
+\begin{equation}
+\label{eq:dtsigma}
+\partial_t \sigma = \Tr(\partial_t \nu \otimes \mu) + \Tr(\nu \otimes \partial_t \mu).
+\end{equation}
+
+The second term is simple,
+\begin{equation}
+\label{eq:dtsigma2}
+\begin{split}
+\Tr(\nu \otimes \partial_t \mu) &= \Tr(\nu \otimes \Tr(g^{-1} \otimes X) \mu) \\
+&= \Tr(g^{-1} \otimes X) \Tr (\nu \otimes \mu) \\
+&= \Tr(g^{-1} \otimes X) \sigma.
+\end{split}
+\end{equation}
+
+For the first term, we must compute \(\partial_t \nu\). Note that \(\bdry{\Omega_0}\) itself is not changing, whereas the metric is changing, and hence so too is \(\nu\) which is defined via,
+\begin{equation}
+\label{eq:normalequation}
+g_t(\nu, \nu) = 1, \quad g_t(\nu, X) = 0 \text{ for every \(X\) tangent to \(\bdry{\Omega_0}\)}.
+\end{equation}
+
+From the first defining equation in \eqref{eq:normalequation} and the evolution of the metric, \eqref{eq:dtg}
+\[
+0 = \partial_t (g(\nu, \nu)) = (\partial_t g) (\nu, \nu) + 2g(\partial_t \nu, \nu)
+\]
+so that
+\[
+g(\partial_t \nu, \nu) = -X(\nu, \nu).
+\]
+Thus we obtain,
+\begin{equation}
+\label{eq:dtsigma1}
+\Tr(\partial_t \nu \otimes \mu) = g(\partial_t \nu, \nu) \sigma = -X(\nu, \nu) \sigma.
+\end{equation}
+
+Substitution of \eqref{eq:dtsigma1} and \eqref{eq:dtsigma2} into \eqref{eq:dtsigma} completes the proof.
+\end{proof}
+
+\begin{rem}
+For the record, the second defining equation in \eqref{eq:normalequation}, the evolution of the metric, \eqref{eq:dtg} and \(\partial_t X = 0\) give
+\[
+g(\partial_t \nu, X) = -(\partial_t g) (\nu, X) - g(\nu, \partial_t X) = -2 X(\nu, X).
+\]
+\end{rem}
+
 \printbibliography
 
 \end{document}
