@@ -127,12 +127,21 @@ g(\partial_t \nu, X) = -(\partial_t g) (\nu, X) - g(\nu, \partial_t X) = -2 X(\n
 \label{subsec:iso_diff_ineq_viscosity}
 
 \begin{thm}
+\label{thm:general_viscosity}
 The isoperimetric profile is a viscosity super-solution of,
 \[
-\partial_t I - \phi^2 \phi'' \geq  \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma  - I'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu)\right) \sigma,
+\begin{split}
+\partial_t I &\geq I^2 I'' +  \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma  - I'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu)\right) \sigma \\
+&= I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(Tr_g X + R_{\Omega_0} - X(\nu, \nu) - \ric(\nu)\right) \sigma \\
+&\quad - \left(I'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
+\end{split}
 \]
 where \(\Omega_0 = \Omega_0(x_0, t_0)\) is an isoperimetric domain at \((x_0, t_0)\).
 \end{thm}
+
+\begin{rem}
+At this level of generality, we cannot say anything more. The first line of each equation depends on the speed \(X\) and it's relation to the ambient curvature along an (essentially unknown) isoperimetric domain. To go further we must specify the speed which we do later. More difficult to deal with is the second line, which also depends on the speed \(X\) but cannot be balanced against the other terms unless we can apply some (generally topological) argument to rewrite it as a boundary integral. We also address this issue below.
+\end{rem}
 
 \begin{proof}
 Let \(\phi \leq_{x=x_0, t\leq t_0} I\) be smooth, lower supporting function, \(\Omega_0\) and isoperimetric domain for \((x_0, t_0)\) and \(\Omega_u\) a variation of \(\Omega_0\). Define,
@@ -183,9 +192,23 @@ Putting this together we arrive at,
 \end{split}
 \]
 The result follows by the definition of viscosity super solution.
+
+For the second form, we use the Gauss equation, which states,
+\[
+2 \ric(\nu) + \abs{A}^2 = R_{\Omega_0} + H^2 - R_{\bdry{\Omega_0}}.
+\]
+Thus we obtain,
+\[
+\begin{split}
+\partial_t \phi - \phi^2 \phi'' &\geq \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma  - \phi'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu)\right) \sigma \\
+&= (\phi')^2 \phi - \phi'\int_{\Omega_0} \Tr_g X \mu \\
+&\quad + \int_{\bdry{\Omega_0}} \left(-\ric(\nu) + R_{\Omega_0} - R_{\bdry{\Omega_0}} + \Tr_g X - X(\nu, \nu)\right) \sigma
+\end{split}
+\]
+as required.
 \end{proof}
 
-By making use of the Gauss equation and the Gauss-Bonnet formula, we can improve this equation in two and three dimensions.
+By making use of the Gauss-Bonnet formula, we can improve this equation in two and three dimensions.
 
 \begin{cor}
 In two dimensions,
@@ -204,36 +227,14 @@ while in three dimensions,
 \]
 \end{cor}
 
-\begin{rem}
-At this level of generality, we cannot say anything more. The first line of each equation depends on the speed \(X\) and it's relation to the ambient curvature. To go further we must specify specific speeds which we do later. More difficult to deal with is the second line, which also depends on the speed \(X\) but cannot be balanced against the other terms unless we can apply some argument to rewrite it as a boundary integral. We also address this issue below.
-\end{rem}
-
 \begin{proof}
-The Gauss equation states,
-\[
-2 \ric(\nu) + \abs{A}^2 = R_{\Omega_0} + H^2 - R_{\bdry{\Omega_0}}.
-\]
-Thus (in any dimension) we obtain,
-\[
-\begin{split}
-\partial_t \phi - \phi^2 \phi'' &\geq \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma  - \phi'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu)\right) \sigma \\
-&= (\phi')^2 \phi - \phi'\int_{\Omega_0} \Tr_g X \mu \\
-&\quad + \int_{\bdry{\Omega_0}} \left(-\ric(\nu) + R_{\Omega_0} - R_{\bdry{\Omega_0}} + \Tr_g X - X(\nu, \nu)\right) \sigma
-\end{split}
-\]
+In two dimensions, \(\bdry{\Omega_0}\) is one dimensional, hence \(R_{\bdry{\Omega_0}} = 0\). Substitution in into the second equality in \Cref{thm:general_viscosity} gives the two dimensional result.
 
-In two dimensions, \(\bdry{\Omega_0}\) is one dimensional, hence \(R_{\bdry{\Omega_0}} = 0\). In three dimensions, \(\bdry{\Omega_0}\) is two dimensional, hence \(R_{\bdry{\Omega_0}} = 2K\) and the Gauss-Bonnet formula implies,
+In three dimensions, \(\bdry{\Omega_0}\) is two dimensional, hence \(R_{\bdry{\Omega_0}} = 2K\) and the Gauss-Bonnet formula implies,
 \[
 \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}} = 2\pi \chi(\bdry{\Omega_0}).
 \]
-where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used that \(\bdry{\bdry{\Omega_0}} = \emptyset\). If we agree that \(\chi((\bdry{\Omega_0}) = 0\) in the two dimensional case, we may write both cases as,
-\[
-\begin{split}
-\partial_t \phi - \phi^2 \phi'' &\geq (\phi')^2 \phi - 4\pi \chi(\bdry{\Omega_0}) + \int_{\bdry{\Omega_0}} \left(-\ric(\nu) + R_{\Omega_0} \right)\sigma \\
-&\quad - \phi'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu)\right) \sigma,
-\end{split}
-\]
-which gives the result.
+where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used that \(\bdry{\bdry{\Omega_0}} = \emptyset\). The three dimensional result now also follows from substitution in into the second equality in \Cref{thm:general_viscosity}.
 \end{proof}
 
 \printbibliography
