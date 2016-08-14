@@ -14,6 +14,10 @@
 \usepackage{amsthm,thmtools,amssymb,amsmath,amscd}
 
 \usepackage[bibstyle=alphabetic,citestyle=alphabetic,backend=bibtex]{biblatex}
+% Biblatex bug
+\makeatletter
+\def\blx@maxline{77}
+\makeatother
 \bibliography{Bibliography}
 
 \usepackage{fancyhdr}
@@ -25,7 +29,6 @@
 
 \usepackage{graphicx}
 
-\swapnumbers
 \declaretheorem[name=Theorem,numberwithin=section]{thm}
 \declaretheorem[name=Remark,style=remark,sibling=thm]{rem}
 \declaretheorem[name=Lemma,sibling=thm]{lemma}
