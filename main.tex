@@ -241,6 +241,38 @@ In three dimensions, \(\bdry{\Omega_0}\) is two dimensional, hence \(R_{\bdry{\O
 where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used that \(\bdry{\bdry{\Omega_0}} = \emptyset\). The three dimensional result now also follows from substitution in into the second equality in \Cref{thm:general_viscosity}.
 \end{proof}
 
+\subsection{The Ricci Flow}
+\label{subsec:iso_diff_ineq_ricci}
+
+The Ricci flow is the case where $X = -\ric$, and so $\Tr_g X = -R$. The viscosity equation in \Cref{thm:general_viscosity} looks quite appealing in this case:
+\[
+\partial_t I \geq I^2I'' + I(I')^2 + \left(I'\int_{\Omega_0} R \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right).
+\]
+Using \Cref{cor:low_dim_general_viscosity}, in two dimensions this becomes,
+\[
+\partial_t I \geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu.
+\]
+After an application of the Gauss-Bonnet theorem, the last term becomes,
+\[
+I'\int_{\Omega_0} R \mu = 4\pi\chi(\Omega_0)I' - 2\int_{\bdry{\Omega_0}} H \sigma = 4\pi\chi(\Omega_0)I'- 2 I (I')^2
+\]
+and so we get,
+\begin{equation}
+\label{eq:2d_viscosity_ricciflow}
+\begin{split}
+\partial_t I &\geq I^2I'' - I(I')^2 - 4\pi\chi(\Omega_0)I' \\
+&= \frac{1}{I^3} \Delta \ln I - 4\pi\chi(\Omega_0)I'.
+\end{split}
+\end{equation}
+Thus we arrive at a rather more usable differential inequality with the only unknown term coming from the topology of isoperimetric domains, which depends on \(x\). Rather complete results for the closed, two-dimensional case are described in \cite{Bryan:/2016,AndrewsBryan:/2010}.
+
+Using \Cref{cor:low_dim_general_viscosity}, in three dimensions we have
+\[
+\partial_t I \geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu - 4\pi\chi(\bdry{\Omega_0}).
+\]
+
+Compared to the two dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstien-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
+
 \printbibliography
 
 \end{document}
