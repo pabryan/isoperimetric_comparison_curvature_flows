@@ -38,42 +38,50 @@ and the infimum ranges over all compactly contained, connected, open sets \(\Ome
 \section{A Differential Inequality For The Isoperimetric Profile}
 \label{sec:iso_diff_ineq}
 
-Let \(\Omega_0 \subset M\) be an isoperimetric domain at time \(t = t_0\) so that,
-\[
-I_{t_0} (\abs{\Omega_0}_{t_0}) = \abs{\bdry{\Omega_0}}_{t_0}.
-\]
-
 \subsection{Variation Formulae}
 \label{subsec:iso_diff_ineq_variation}
 
-Let also \(\Omega_u\) denote a smooth variation of \(\Omega_0\). That is, there exists an \(\epsilon > 0\) and a smooth map \(\phi: \Omega_0 \times (-\epsilon, \epsilon) \to M\) such that, writing \(\phi_u(\cdot) = \phi(\cdot, u)\) and \(\Omega_u = \phi_u(\Omega_0)\), we have \(\phi_0\) is the inclusion \(\Omega_0 \to M\) and for each \(u\), \(\phi_u\) is an embedding. Let us also write \(V = \phi_{\star} \partial_u\) for the variation vector field and \(\phi = g_{t_0} (V, \nu)\) for the normal component where \(\nu\) is the outer unit normal normal vector field to \(\bdry{\Omega_0}\). We assume that \(\phi \equiv 1\).
-
-With our assumptions, the standard first variation formulae at \(u = 0\) for volume and perimeter read,
+Our approach here is variational. Let \(\Omega_0 \subset M\) be an isoperimetric domain at time \(t = t_0\) so that,
 \[
-\partial_u \abs{\Omega_u} = \int_{\bdry{\Omega_0}} \sigma = \abs{\bdry{\Omega_0}}, \quad \partial_u \abs{\bdry{\Omega_u}} = \int_{\bdry{\Omega_0}} H \sigma = H_0 \abs{\bdry{\Omega_0}}
+I_{t_0} (\abs{\Omega_0}_{t_0}) = \abs{\bdry{\Omega_0}}_{t_0}.
 \]
-where \(H\) is the mean curvature of \(\bdry{\Omega_0}\) which is constant \(H \equiv H_0\) since \(\Omega_0\) is isoperimetric. The second variations of perimeter which are
+Let also \(\Omega_u\) denote a smooth variation of \(\Omega_0\). That is, there exists an \(\epsilon > 0\) and a smooth map \(\phi: \Omega_0 \times (-\epsilon, \epsilon) \to M\) such that, writing \(\phi_u(\cdot) = \phi(\cdot, u)\) and \(\Omega_u = \phi_u(\Omega_0)\), we have \(\phi_0\) is the inclusion \(\Omega_0 \to M\) and for each \(u\), \(\phi_u\) is an embedding. Let \(\nu\) be the outer unit normal normal vector field to \(\bdry{\Omega_0}\). We consider unit speed, normal variations: \(\phi_{\ast} \partial_u = \nu\) along \(\bdry{\Omega_0}\) which always exist for sufficiently small \(\epsilon\) by working in a tubular neighbourhood of \(\bdry{\Omega_0}\).
+
+\begin{lemma}
+\label{lem:spatial_variation}
+The first variation of volume and perimeter at \(u = 0\) are
+\[
+\partial_u \abs{\Omega_u} = \abs{\bdry{\Omega_0}}, \quad \partial_u \abs{\bdry{\Omega_u}} = H_0 \abs{\bdry{\Omega_0}}
+\]
+where \(H_0\) is the mean curvature of \(\bdry{\Omega_0}\) which is constant since is isoperimetric. The second variations are
 \[
 \partial_u^2 \abs{\Omega_u} = H_0 \abs{\bdry{\Omega_0}}
 \]
 and
 \[
-\partial_u^2 \abs{\bdry{\Omega_u}} = H_0^2 \abs{\bdry{\Omega_0}} - \int_{\bdry{\Omega_0}} \abs{A}^2 + \ric(\nu) \sigma.
+\partial_u^2 \abs{\bdry{\Omega_u}} = H_0^2 \abs{\bdry{\Omega_0}} - \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu)\right) \sigma.
 \]
+\end{lemma}
 
-The time variation of \(\abs{\Omega_0}\) may be computed from \(\partial_t \mu = \tfrac{1}{2} \Tr (g^{-1} \otimes 2X)\mu\),
-\[
-\partial_t \abs{\Omega_0} = \int_{\Omega_0} \Tr_g X \mu.
-\]
+\begin{proof}
+See \cite[Chapter 1]{Li:/2012}.
+\end{proof}
 
 \begin{lemma}
+\label{lem:time_variation}
+\[
+\partial_t \abs{\Omega_0} = \int_{\Omega_0} \Tr_g X \mu,
+\]
+and
 \[
 \partial_t \abs{\bdry{\Omega_u}} = \int_{\bdry{\Omega_0}} \Tr_g X - X(\nu, \nu) \sigma.
 \]
 \end{lemma}
 
 \begin{proof}
-We use the definition,
+The time variation of \(\abs{\Omega_0}\) may be computed from \(\partial_t \mu = \tfrac{1}{2} \Tr (g^{-1} \otimes 2X)\mu\).
+
+For the time variation of \(\bdry{\Omega_0}\) We use the definition,
 \[
 \sigma = \intprod_{\nu} \mu = \Tr \nu \otimes \mu.
 \]
@@ -119,8 +127,9 @@ Substitution of \eqref{eq:dtsigma1} and \eqref{eq:dtsigma2} into \eqref{eq:dtsig
 \begin{rem}
 For the record, the second defining equation in \eqref{eq:normalequation}, the evolution of the metric, \eqref{eq:dtg} and \(\partial_t X = 0\) give
 \[
-g(\partial_t \nu, X) = -(\partial_t g) (\nu, X) - g(\nu, \partial_t X) = -2 X(\nu, X).
+g(\partial_t \nu, X) = -(\partial_t g) (\nu, X) - g(\nu, \partial_t X) = -2 X(\nu, X)
 \]
+which along with \(g(\partial_t \nu, \nu) = - X(\nu, \nu)\) completely determines \(\partial_t \nu\).
 \end{rem}
 
 \subsection{Viscosity Equation}
@@ -148,20 +157,18 @@ Let \(\phi \leq_{x=x_0, t\leq t_0} I\) be smooth, lower supporting function, \(\
 \[
 \Phi(u, t) = \abs{\bdry{\Omega_u}}_t - \phi(\abs{\Omega_u}_t, t).
 \]
-Then \(\Phi\) is smooth and since \(\abs{\Omega_u}_t \geq I(\abs{\Omega_u}_t, t) \geq \phi(\abs{\Omega_u}_t, t)\), we have \(\Phi \geq 0\) for \(u \in (-\epsilon, \epsilon)\) and \(t \leq t_0\) along with \(\Phi(0, t_0) = 0\). Note then that
+Then \(\Phi\) is smooth and since \(\abs{\Omega_u}_t \geq I(\abs{\Omega_u}_t, t) \geq \phi(\abs{\Omega_u}_t, t)\), we have \(\Phi \geq 0\) for \(u \in (-\epsilon, \epsilon)\) and \(t \leq t_0\) along with \(\Phi(0, t_0) = 0\). Throughout this proof we tacitly make use of the variation formulae given in \Cref{lem:spatial_variation} and \Cref{lem:time_variation}.
+
+At \((0, t_0)\), the first variation in \(u\) of \(\Phi\) vanishes giving,
+\[
+H_0 \abs{\bdry{\Omega_0}} = \partial_u \abs{\bdry{\Omega_u}} = \phi' \partial_u \abs{\Omega_u} = \phi' \abs{\bdry{\Omega_0}},
+\]
+so that \(\phi' = H_0\). We thus have the identities,
 \begin{equation}
 \label{eq:viscosity_identities}
-\abs{\Omega_0} = x_0, \quad I(x_0, t_0) = \abs{\bdry{\Omega_0}} = \phi(x_0, t_0).
+\abs{\Omega_0} = x_0, \quad I(x_0, t_0) = \abs{\bdry{\Omega_0}} = \phi(x_0, t_0), \quad H_0 = \phi'(x_0, t_0).
 \end{equation}
 
-Therefore, at \((0, t_0)\), the first variation in \(u\) of \(\Phi\) vanishes giving,
-\[
-H_0 \abs{\bdry{\Omega_0}} = \partial_u \abs{\bdry{\Omega_u}}_t = \phi' \partial_u \abs{\Omega_u}_t
-\]
-so that
-\[
-\phi' = H_0.
-\]
 Also, at \((0, t_0)\), the time variation is non-positive, and the second spatial variation is non-negative, hence
 \[
 \begin{split}
@@ -171,16 +178,12 @@ Also, at \((0, t_0)\), the time variation is non-positive, and the second spatia
 \]
 
 From the variation formulae, and using \eqref{eq:viscosity_identities} we obtain
-\[
-(\partial_t - \partial_u^2) \abs{\bdry{\Omega}} = \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu) + \abs{A}^2 + \ric(\nu, \nu)\right) \sigma - (\phi')^2 \phi,
-\]
-\[
-(\partial_t - \partial_u^2) \abs{\Omega_u} = \int_{\Omega_0} \Tr_g X \mu - \phi \phi',
-\]
-and
-\[
-\left(\partial_u \abs{\Omega_u}\right)^2 = \phi^2.
-\]
+\begin{align*}
+(\partial_t - \partial_u^2) \abs{\bdry{\Omega}} &= \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu) + \abs{A}^2 + \ric(\nu, \nu)\right) \sigma - (\phi')^2 \phi, \\
+(\partial_t - \partial_u^2) \abs{\Omega_u} &= \int_{\Omega_0} \Tr_g X \mu - \phi \phi', \\
+\intertext{and}
+\left(\partial_u \abs{\Omega_u}\right)^2 &= \phi^2.
+\end{align*}
 
 Putting this together we arrive at,
 \[
@@ -191,9 +194,9 @@ Putting this together we arrive at,
 &= \phi^2 \phi'' + \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma - \phi'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu)\right) \sigma.
 \end{split}
 \]
-The result follows by the definition of viscosity super solution.
+The inequality in the theorem follows by the definition of viscosity super solution.
 
-For the second form, we use the Gauss equation, which states,
+For the equality, we use the Gauss equation, which states,
 \[
 2 \ric(\nu) + \abs{A}^2 = R_{\Omega_0} + H^2 - R_{\bdry{\Omega_0}}.
 \]
@@ -208,9 +211,10 @@ Thus we obtain,
 as required.
 \end{proof}
 
-By making use of the Gauss-Bonnet formula, we can improve this equation in two and three dimensions.
+Wwe can improve the theorem somewhat in two and three dimensions.
 
 \begin{cor}
+\label{cor:low_dim_general_viscosity}
 In two dimensions,
 \[
 \begin{split}
