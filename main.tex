@@ -396,6 +396,33 @@ For the Ricci Yang-Mills flow, \(A\) is a connection on a \(U(1)\) bundle with c
 \subsection{The Cross Curvature Flow}
 \label{subsec:flows_xcf}
 
-\printbibliography
+\subsection{Hypersurface Flows}
+\label{subsec:flows_hypersurface}
 
+Here we have a smooth, one parameter family of immersions, \(F_t : M^n \to N^{n+1}\) satisfying,
+\[
+\partial_t F = f(\weingarten) \eta
+\]
+where \(\eta\) is a unit normal field to \(M_t = F_t(M)\), \(\weingarten\) is the Weingarten map and \(f\) is a curvature function. The metric evolves by
+\[
+\partial_t g = 2f(\weingarten) h
+\]
+where \(h\) is the second fundamental form. In other words,
+\[
+X = f(\weingarten)h,
+\]
+and
+\[
+\Tr_g X = f H, \quad X(\nu, \nu) = f h(\nu, \nu).
+\]
+
+\Cref{thm:general_viscosity} now becomes
+\[
+\begin{split}
+\partial_t I &\geq I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(fH + R_{\Omega_0} - fh(\nu, \nu) - \ric(\nu)\right) \sigma \\
+&\quad - \left(I'\int_{\Omega_0} \Tr_g fH \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
+\end{split}
+\]
+
+\printbibliography
 \end{document}
