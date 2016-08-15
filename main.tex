@@ -245,7 +245,7 @@ where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used tha
 \label{sec:flows}
 
 \subsection{The Ricci Flow}
-\label{subsec:iso_diff_ineq_ricci}
+\label{subsec:flows_ricci}
 
 The Ricci flow is the case where $X = -\ric$, and so $\Tr_g X = -R$. The viscosity equation in \Cref{thm:general_viscosity} looks quite appealing in this case:
 \[
@@ -276,6 +276,37 @@ Using \Cref{cor:low_dim_general_viscosity}, in three dimensions we have
 
 Compared to the two dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstien-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
 
+\subsection{The Conformal, Coupled Ricci Flow }
+\label{subsec:flows_ricci_coupled}
+
+Here we take \(X = -\ric + \varphi g\) where \(\phi \in C^{\infty}(M)\) is a smooth function. Particular examples are,
+\begin{align*}
+\varphi &= \frac{1}{n} \bar{R} = \frac{1}{n\abs{M}} \int_M R \mu & \text{Normalised Ricci flow} \\
+\varphi &= \frac{1}{n} \bar{R} - \operatorname{div} V & \text{Ricci flow with metric torsion} \\
+\varphi &= \frac{1}{n} \abs{F}^2 & \text{Ricci Yang-Mills flow}
+\end{align*}
+
+In the latter two situations, the vector field \(V\) and the two form \(F\) are supposed to satisfy evolution equations, dependent on \(g\) and hence coupled to the Ricci flow.
+
+For the Ricci flow with metric torsion, \(V\) is a vector field generating a metric compatible connection with torsion. That is, let \(\nabla\) denote the Levi-Civita connection and define a connection \(\tilde{\nabla}\) to be the unique metric compatible connection with torsion tensor,
+\[
+\tilde{\nabla}_X Y - \tilde{\nabla}_Y X = T(X, Y) = g(V, X) Y - g(V, Y) X.
+\]
+Thus,
+\[
+\tilde{\nabla}_X Y = \nabla_X Y + g(V, X) Y.
+\]
+Note that on a two dimensional, closed manifold, if \(A(X, Y) = \nabla_X Y - \tilde{\nabla}_X Y\), then the existence of a vector field \(V\) such that \(A(X, Y) = g(V, X)Y\) is assured.
+
+In any case, the vector field \(V\) is required to evolve by
+\[
+\partial_t V = -(R - \bar{R}) V.
+\]
+
+For the Ricci Yang-Mills flow, \(A\) is a connection on a \(U(1)\) bundle with curvature 2-form \(F\). If the \(U(1)\) bundle is trivial, then one may identify \(F\) with a two-form on \(M\) by precomposing with a global section of the bundle. In two dimensions, any such \(F\) satisfies \(\Tr_g F \otimes F = \tfrac{1}{2} \abs{F}^2\) where the trace contracts one slot of \(g\) with the second slot of the first \(F\) factor and the other slot of \(g\) with the second slot of the second \(F\) factor. \(A\) is required to evolve by
+\[
+\partial_t A = -d^{\ast} F.
+\]
 \subsection{The Yamabe Flow}
 \label{subsec:flows_yamabe}
 
