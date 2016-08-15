@@ -241,6 +241,9 @@ In three dimensions, \(\bdry{\Omega_0}\) is two dimensional, hence \(R_{\bdry{\O
 where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used that \(\bdry{\bdry{\Omega_0}} = \emptyset\). The three dimensional result now also follows from substitution in into the second equality in \Cref{thm:general_viscosity}.
 \end{proof}
 
+\section{Examples of Flows}
+\label{sec:flows}
+
 \subsection{The Ricci Flow}
 \label{subsec:iso_diff_ineq_ricci}
 
@@ -272,6 +275,38 @@ Using \Cref{cor:low_dim_general_viscosity}, in three dimensions we have
 \]
 
 Compared to the two dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstien-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
+
+\subsection{The Yamabe Flow}
+\label{subsec:flows_yamabe}
+
+The Yamabe flow is the case \(X = -\tfrac{1}{n}(R - \bar{R})g\) where \(\bar{R} = \tfrac{1}{\abs{M}} \int_M R \mu\) is the average scalar curvature. Then \(\Tr_g X = -(R - \bar{R})\) and \(X(\nu, \nu) = -\tfrac{1}{n}(R - \bar{R})\). The viscosity equation in \Cref{thm:general_viscosity} is not quite as nice as the Ricci flow,
+\[
+\begin{split}
+\partial_t I &\geq I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(-(R - \bar{R}) + R + \frac{1}{n}(R - \bar{R}) - \ric(\nu)\right) \sigma \\
+&\quad + \left(I'\int_{\Omega_0} (R - \bar{R}) \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) \\
+&= I^2 I'' +  (I')^2 I + \left(1 - \frac{1}{n}\right) \bar{R} I - \bar{R}xI' - \int_{\bdry{\Omega_0}} \mathring{\ric} (\nu) \sigma \\
+&\quad + I' \int_{\Omega_0} R \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma
+\end{split}
+\]
+where \(\mathring{\ric} = \tfrac{1}{n}Rg - \ric\) is the traceless Ricci tensor.
+
+In two dimensions (\(n=2\)), life is good. Since \(\bar{R} = 4\pi \chi(M)\) and \(\mathring{\ric} = 0\), using \Cref{cor:low_dim_general_viscosity} again produces,
+\[
+\partial_t I \geq I^2 I'' -  (I')^2 I - 4\pi\left[\chi(M)x - \chi(\Omega_0)\right]I' + 2\pi\chi(M) I.
+\]
+Note that this equation is the same as the normalised Ricci flow since the Yamabe flow is precisely the normalised Ricci flow in two dimensions.
+
+In three dimensions, we only get a slight improvement,
+\[
+\begin{split}
+\partial_t I &\geq I^2 I'' +  (I')^2 I + \left(1 - \frac{1}{n}\right) \bar{R} I - \bar{R}xI' - \int_{\bdry{\Omega_0}} \mathring{\ric} (\nu) \sigma \\
+&\quad + I' \int_{\Omega_0} R \mu - 4\pi\chi(\bdry{\Omega_0}).
+\end{split}
+\]
+
+
+\subsection{The Cross Curvature Flow}
+\label{subsec:flows_xcf}
 
 \printbibliography
 
