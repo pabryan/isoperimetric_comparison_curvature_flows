@@ -248,9 +248,11 @@ where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used tha
 \label{subsec:flows_ricci}
 
 The Ricci flow is the case where $X = -\ric$, and so $\Tr_g X = -R$. The viscosity equation in \Cref{thm:general_viscosity} looks quite appealing in this case:
-\[
+\begin{equation}
+\label{eq:viscosity_ricciflow}
 \partial_t I \geq I^2I'' + I(I')^2 + \left(I'\int_{\Omega_0} R \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right).
-\]
+\end{equation}
+
 Using \Cref{cor:low_dim_general_viscosity}, in two dimensions this becomes,
 \[
 \partial_t I \geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu.
@@ -270,43 +272,67 @@ and so we get,
 Thus we arrive at a rather more usable differential inequality with the only unknown term coming from the topology of isoperimetric domains, which depends on \(x\). Rather complete results for the closed, two-dimensional case are described in \cite{Bryan:/2016,AndrewsBryan:/2010}.
 
 Using \Cref{cor:low_dim_general_viscosity}, in three dimensions we have
-\[
+\begin{equation}
+\label{eq:3d_viscosity_ricciflow}
 \partial_t I \geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu - 4\pi\chi(\bdry{\Omega_0}).
-\]
+\end{equation}
 
 Compared to the two dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstien-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
 
 \subsection{The Conformal, Coupled Ricci Flow }
 \label{subsec:flows_ricci_coupled}
 
-Here we take \(X = -\ric + \varphi g\) where \(\phi \in C^{\infty}(M)\) is a smooth function. Particular examples are,
+Here we take \(X = -\ric + \varphi g\) where \(\varphi \in C^{\infty}(M)\) is a smooth function. One may ask more generally to add a symmetric two form in place of the conformal two form \(\varphi g\). This becomes rather more complicated, so we focus on the conformal case for the time being. The conformal factor \(\varphi\) evolves by a flow coupled to the metric flow,
+\[
+\partial_t \varphi = v(g, \varphi)
+\]
+where \(v\) is a scalar function depending on the metric, the conformal factor and possibly other tensors.
+
+Particular examples are,
 \begin{align*}
 \varphi &= \frac{1}{n} \bar{R} = \frac{1}{n\abs{M}} \int_M R \mu & \text{Normalised Ricci flow} \\
-\varphi &= \frac{1}{n} \bar{R} - \operatorname{div} V & \text{Ricci flow with metric torsion} \\
-\varphi &= \frac{1}{n} \abs{F}^2 & \text{Ricci Yang-Mills flow}
+\varphi &= \frac{1}{n} \abs{F}^2 & \text{Ricci Yang-Mills flow \cite{Streets:/2010}}
 \end{align*}
 
-In the latter two situations, the vector field \(V\) and the two form \(F\) are supposed to satisfy evolution equations, dependent on \(g\) and hence coupled to the Ricci flow.
-
-For the Ricci flow with metric torsion, \(V\) is a vector field generating a metric compatible connection with torsion. That is, let \(\nabla\) denote the Levi-Civita connection and define a connection \(\tilde{\nabla}\) to be the unique metric compatible connection with torsion tensor,
+For the Ricci Yang-Mills flow, \(A\) is a connection on a \(U(1)\) bundle with curvature 2-form \(F\). If the \(U(1)\) bundle is trivial, then one may identify \(F\) with a two-form on \(M\) by pre-composing with a global section of the bundle. In two dimensions, any such \(F\) satisfies \(\Tr_g F \otimes F = \tfrac{1}{2} \abs{F}^2 g\) where the trace contracts one slot of \(g\) with the second slot of the first \(F\) factor and the other slot of \(g\) with the second slot of the second \(F\) factor. \(A\) is required to evolve by
 \[
-\tilde{\nabla}_X Y - \tilde{\nabla}_Y X = T(X, Y) = g(V, X) Y - g(V, Y) X.
+\partial_t A = -d^{\ast} F,
 \]
-Thus,
+which then induces the evolution
 \[
-\tilde{\nabla}_X Y = \nabla_X Y + g(V, X) Y.
-\]
-Note that on a two dimensional, closed manifold, if \(A(X, Y) = \nabla_X Y - \tilde{\nabla}_X Y\), then the existence of a vector field \(V\) such that \(A(X, Y) = g(V, X)Y\) is assured.
-
-In any case, the vector field \(V\) is required to evolve by
-\[
-\partial_t V = -(R - \bar{R}) V.
+\partial_t \varphi = .
 \]
 
-For the Ricci Yang-Mills flow, \(A\) is a connection on a \(U(1)\) bundle with curvature 2-form \(F\). If the \(U(1)\) bundle is trivial, then one may identify \(F\) with a two-form on \(M\) by precomposing with a global section of the bundle. In two dimensions, any such \(F\) satisfies \(\Tr_g F \otimes F = \tfrac{1}{2} \abs{F}^2\) where the trace contracts one slot of \(g\) with the second slot of the first \(F\) factor and the other slot of \(g\) with the second slot of the second \(F\) factor. \(A\) is required to evolve by
-\[
-\partial_t A = -d^{\ast} F.
-\]
+For the normalised Ricci flow, the conformal factor is already just curvature, depending only on the metric, and hence we don't need to think of this as a coupled flow.
+
+Since \Cref{thm:general_viscosity} is linear in the speed \(X\), we simply add the conformal terms \(n \varphi\) coming from \(\Tr_g X\) and \(\varphi\) coming from \(X(\nu, \nu)\) to the Ricci flow viscosity equation \eqref{eq:viscosity_ricciflow} to obtain
+\begin{equation}
+\label{eq:viscosity_conformalcoupledricciflow}
+\begin{split}
+\partial_t I &\geq I^2I'' + I(I')^2 + \left(I'\int_{\Omega_0} R \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) \\
+&+ \int_{\bdry{\Omega_0}} (n-1) \varphi\sigma - n I' \int_{\Omega_0} \varphi \mu.
+\end{split}
+\end{equation}
+
+In two dimensions, equation \eqref{eq:2d_viscosity_ricciflow} becomes
+
+\begin{equation}
+\label{eq:2d_viscosity_conformalcoupledricciflow}
+\begin{split}
+\partial_t I &\geq \frac{1}{I^3} \Delta \ln I - 4\pi\chi(\Omega_0)I' \\
+&+ \int_{\bdry{\Omega_0}} (n-1) \varphi\sigma - n I' \int_{\Omega_0} \varphi \mu.
+\end{split}
+\end{equation}
+
+In three dimensions, equation \eqref{eq:3d_viscosity_ricciflow} becomes
+\begin{equation}
+\label{eq:3d_viscosity_conformalcoupledricciflow}
+\begin{split}
+\partial_t I &\geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu - 4\pi\chi(\bdry{\Omega_0}) \\
+&+ \int_{\bdry{\Omega_0}} (n-1) \varphi\sigma - n I' \int_{\Omega_0} \varphi \mu.
+\end{split}
+\end{equation}
+
 \subsection{The Yamabe Flow}
 \label{subsec:flows_yamabe}
 
@@ -335,6 +361,37 @@ In three dimensions, we only get a slight improvement,
 \end{split}
 \]
 
+
+\subsection{The Coupled Yamabe Flow }
+\label{subsec:flows_yamabe_coupled}
+
+Here we take \(X = -(R - \bar{R}) + \varphi g\) where \(\varphi \in C^{\infty}(M)\) is a smooth function. The Yamabe flow is designed to flow metric within a fixed conformal class, so it makes perfect sense to only add a conformal factor to the evolution, and the adjective ``conformal'' becomes superfluous in this case.
+
+Particular examples are,
+\begin{align*}
+\varphi &= \frac{1}{n} \bar{R} - \operatorname{div} V & \text{Yamabe flow with metric torsion} \\
+\varphi &= \frac{1}{n} \abs{F}^2 & \text{Yamabe Yang-Mills flow}
+\end{align*}
+
+For the Yang-Mills flow with metric torsion, \(V\) is a vector field generating a metric compatible connection with torsion. That is, let \(\nabla\) denote the Levi-Civita connection and define a connection \(\tilde{\nabla}\) to be the unique metric compatible connection with torsion tensor,
+\[
+\tilde{\nabla}_X Y - \tilde{\nabla}_Y X = T(X, Y) = g(V, X) Y - g(V, Y) X.
+\]
+Thus,
+\[
+\tilde{\nabla}_X Y = \nabla_X Y + g(V, X) Y.
+\]
+Note that on a two dimensional, closed manifold, if \(A(X, Y) = \nabla_X Y - \tilde{\nabla}_X Y\), then the existence of a vector field \(V\) such that \(A(X, Y) = g(V, X)Y\) is assured.
+
+In any case, the vector field \(V\) is required to evolve by
+\[
+\partial_t V = -(R - \bar{R}) V.
+\]
+
+For the Ricci Yang-Mills flow, \(A\) is a connection on a \(U(1)\) bundle with curvature 2-form \(F\). If the \(U(1)\) bundle is trivial, then one may identify \(F\) with a two-form on \(M\) by precomposing with a global section of the bundle. In two dimensions, any such \(F\) satisfies \(\Tr_g F \otimes F = \tfrac{1}{2} \abs{F}^2\) where the trace contracts one slot of \(g\) with the second slot of the first \(F\) factor and the other slot of \(g\) with the second slot of the second \(F\) factor. \(A\) is required to evolve by
+\[
+\partial_t A = -d^{\ast} F.
+\]
 
 \subsection{The Cross Curvature Flow}
 \label{subsec:flows_xcf}
