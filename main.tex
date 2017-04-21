@@ -59,7 +59,7 @@ where \(H_0\) is the mean curvature of \(\bdry{\Omega_0}\) which is constant sin
 \]
 and
 \[
-\partial_u^2 \abs{\bdry{\Omega_u}} = H_0^2 \abs{\bdry{\Omega_0}} - \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu)\right) \sigma.
+\partial_u^2 \abs{\bdry{\Omega_u}} = H_0^2 \abs{\bdry{\Omega_0}} - \int_{\bdry{\Omega_0}} \left(\abs{\sff}^2 + \ric(\nu)\right) \sigma.
 \]
 \end{lemma}
 
@@ -79,7 +79,11 @@ and
 \end{lemma}
 
 \begin{proof}
-The time variation of \(\abs{\Omega_0}\) may be computed from \(\partial_t \mu = \tfrac{1}{2} \Tr (g^{-1} \otimes 2\speed)\mu\).
+The time variation of \(\abs{\Omega_0}\) may be computed from the standard formula for differentiating a determinant,
+\[
+\partial_t \mu = \tfrac{1}{2}\Tr(g^{\ast} \otimes \partial_t g) =  \tfrac{1}{2} \Tr (g^{\ast} \otimes 2\speed)\mu
+\]
+where \(g^{\ast}\) is the dual metric defined by \(g^{\ast} (\alpha, \beta) = g(\alpha^{\sharp}, \beta^{\sharp})\) and \(\alpha^{\sharp}\) is the metric contraction of \(\alpha\) defined by \(\alpha(X) = g(\alpha^{\sharp}, X)\) for any tangent vector \(X\).
 
 For the time variation of \(\bdry{\Omega_0}\) we use the definition,
 \[
@@ -95,9 +99,9 @@ The second term is simple,
 \begin{equation}
 \label{eq:dtsigma2}
 \begin{split}
-\Tr(\nu \otimes \partial_t \mu) &= \Tr(\nu \otimes \Tr(g^{-1} \otimes \speed) \mu) \\
-&= \Tr(g^{-1} \otimes \speed) \Tr (\nu \otimes \mu) \\
-&= \Tr(g^{-1} \otimes \speed) \sigma.
+\Tr(\nu \otimes \partial_t \mu) &= \Tr(\nu \otimes \Tr(g^{\ast} \otimes \speed) \mu) \\
+&= \Tr(g^{\ast} \otimes \speed) \Tr (\nu \otimes \mu) \\
+&= \Tr(g^{\ast} \otimes \speed) \sigma.
 \end{split}
 \end{equation}
 
@@ -118,7 +122,7 @@ g(\partial_t \nu, \nu) = -\speed(\nu, \nu).
 Thus we obtain,
 \begin{equation}
 \label{eq:dtsigma1}
-\Tr(\partial_t \nu \otimes \mu) = g(\partial_t \nu, \nu) \sigma = -\speed(\nu, \nu) \sigma.
+\Tr(\partial_t \nu \otimes \mu) = \intprod_{\partial_t\nu} \mu =  g(\partial_t \nu, \nu) \sigma = -\speed(\nu, \nu) \sigma.
 \end{equation}
 
 Substitution of \eqref{eq:dtsigma1} and \eqref{eq:dtsigma2} into \eqref{eq:dtsigma} completes the proof.
@@ -129,7 +133,10 @@ For the record, the second defining equation in \eqref{eq:normalequation}, the e
 \[
 g(\partial_t \nu, X) = -(\partial_t g) (\nu, X) - g(\nu, \partial_t X) = -2 \speed(\nu, X)
 \]
-which along with \(g(\partial_t \nu, \nu) = - \speed(\nu, \nu)\) completely determines \(\partial_t \nu\).
+which along with \(g(\partial_t \nu, \nu) = - \speed(\nu, \nu)\) completely determines \(\partial_t \nu\):
+\[
+\partial_t \nu = -\speed(\nu, \nu) \nu -2 \Tr g^{\ast} \otimes h(\nu, \cdot).
+\]
 \end{rem}
 
 \subsection{Viscosity Equation}
@@ -140,7 +147,7 @@ which along with \(g(\partial_t \nu, \nu) = - \speed(\nu, \nu)\) completely dete
 The isoperimetric profile is a viscosity super-solution of,
 \[
 \begin{split}
-\partial_t I &\geq I^2 I'' +  \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma  - I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma \\
+\partial_t I &\geq I^2 I'' +  \int_{\bdry{\Omega_0}} \left(\abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma  - I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma \\
 &= I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(Tr_g \speed + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right) \sigma \\
 &\quad - \left(I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
 \end{split}
@@ -177,9 +184,9 @@ Also, at \((0, t_0)\), the time variation is non-positive, and the second spatia
 \end{split}
 \]
 
-From the variation formulae, and using \eqref{eq:viscosity_identities} we obtain
+From the variation formulae in Lemmas \ref{lem:spatial_variation} and \ref{lem:time_variation}, and using equation \eqref{eq:viscosity_identities} we obtain
 \begin{align*}
-(\partial_t - \partial_u^2) \abs{\bdry{\Omega}} &= \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{A}^2 + \ric(\nu, \nu)\right) \sigma - (\phi')^2 \phi, \\
+(\partial_t - \partial_u^2) \abs{\bdry{\Omega}} &= \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma - (\phi')^2 \phi, \\
 (\partial_t - \partial_u^2) \abs{\Omega_u} &= \int_{\Omega_0} \Tr_g \speed \mu - \phi \phi', \\
 \intertext{and}
 \left(\partial_u \abs{\Omega_u}\right)^2 &= \phi^2.
@@ -188,22 +195,22 @@ From the variation formulae, and using \eqref{eq:viscosity_identities} we obtain
 Putting this together we arrive at,
 \[
 \begin{split}
-\partial_t \phi &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{A}^2 + \ric(\nu, \nu) \right)\sigma - (\phi')^2 \phi \\
+\partial_t \phi &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{\sff}^2 + \ric(\nu, \nu) \right)\sigma - (\phi')^2 \phi \\
 &\quad - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \phi (\phi')^2 \\
 &\quad \phi^2 \phi'' -\partial_t \phi \\
-&= \phi^2 \phi'' + \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma.
+&= \phi^2 \phi'' + \int_{\bdry{\Omega_0}} \left(\abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma.
 \end{split}
 \]
 The inequality in the theorem follows by the definition of viscosity super solution.
 
-For the equality, we use the Gauss equation, which states,
+For the equality in the statement of the theorem, we use the Gauss equation, which states,
 \[
-2 \ric(\nu) + \abs{A}^2 = R_{\Omega_0} + H^2 - R_{\bdry{\Omega_0}}.
+2 \ric(\nu) + \abs{\sff}^2 = R_{\Omega_0} + H^2 - R_{\bdry{\Omega_0}}.
 \]
 Thus we obtain,
 \[
 \begin{split}
-\partial_t \phi - \phi^2 \phi'' &\geq \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma  - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma \\
+\partial_t \phi - \phi^2 \phi'' &\geq \int_{\bdry{\Omega_0}} \left(\abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma  - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma \\
 &= (\phi')^2 \phi - \phi'\int_{\Omega_0} \Tr_g \speed \mu \\
 &\quad + \int_{\bdry{\Omega_0}} \left(-\ric(\nu) + R_{\Omega_0} - R_{\bdry{\Omega_0}} + \Tr_g \speed - \speed(\nu, \nu)\right) \sigma
 \end{split}
@@ -438,26 +445,26 @@ Here \(A\) is a connection on a \(U(1)\) bundle with curvature 2-form \(F\). If 
 
 Here we have a smooth, one parameter family of immersions, \(F_t : M^n \to N^{n+1}\) satisfying,
 \[
-\partial_t F = f(\weingarten) \eta
+\partial_t F = -f(\weingarten) \eta
 \]
 where \(\eta\) is a unit normal field to \(M_t = F_t(M)\), \(\weingarten\) is the Weingarten map and \(f\) is a curvature function. The metric evolves by
 \[
-\partial_t g = 2f(\weingarten) \sff
+\partial_t g = -2f(\weingarten) \sff
 \]
 where \(\sff\) is the second fundamental form. In other words,
 \[
-\speed = f(\weingarten)\sff,
+\speed = -f(\weingarten)\sff,
 \]
 and
 \[
-\Tr_g \speed = f H, \quad \speed (\nu, \nu) = f h(\nu, \nu).
+\Tr_g \speed = -f H, \quad \speed (\nu, \nu) = -f \sff(\nu, \nu).
 \]
 
 \Cref{thm:general_viscosity} now becomes
 \[
 \begin{split}
-\partial_t I &\geq I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(fH + R_{\Omega_0} - f\sff(\nu, \nu) - \ric(\nu)\right) \sigma \\
-&\quad - \left(I'\int_{\Omega_0} fH \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
+\partial_t I &\geq I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(-fH + R_{\Omega_0} + f\sff(\nu, \nu) - \ric(\nu)\right) \sigma \\
+&\quad + \left(I'\int_{\Omega_0} fH \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
 \end{split}
 \]
 
