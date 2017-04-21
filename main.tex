@@ -369,26 +369,63 @@ Here we take \(\speed = -(R - \bar{R}) + \varphi g\) where \(\varphi \in C^{\inf
 
 Particular examples are,
 \begin{align*}
-\varphi &= \frac{1}{n} \bar{R} - \operatorname{div} V & \text{Yamabe flow with metric torsion} \\
+\varphi &= \frac{1}{n} \bar{R} - \operatorname{div} V & \text{Yamabe flow with vector metric torsion \cite{2016arXiv160609121B}} \\
 \varphi &= \frac{1}{n} \abs{F}^2 & \text{Yamabe Yang-Mills flow}
 \end{align*}
 
-For the Yamabe flow with metric torsion, \(V\) is a vector field generating a metric compatible connection with torsion. That is, let \(\nabla\) denote the Levi-Civita connection and define a connection \(\tilde{\nabla}\) to be the unique metric compatible connection with torsion tensor,
+\subsubsection*{Yamabe flow with vector metric torsion}
+
+Here \(V\) is a vector field generating a metric compatible connection with torsion. That is, let \(\nabla\) denote the Levi-Civita connection and define the connection \(^{V}\nabla\) to be the unique metric compatible connection with torsion tensor,
+\begin{equation}
+\label{eq:vector_torsion}
+^{V}\nabla_X Y - ^{V}\nabla_Y X - [X, Y] = T_V(X, Y) = g(V, X) Y - g(V, Y) X.
+\end{equation}
+Namely, \(^{V}\nabla\) is defined by the Koszul Formula,
+\begin{equation}
+\label{eq:koszul}
+g(^{V}\nabla_X Y, Z) = \frac{1}{2} \operatorname{Alt} \Bigl\{X[g(Y, Z)] - g(T_V(X, Z) + [X, Z], Y)\Bigr\}
+\end{equation}
+where $\operatorname{Alt}$ denotes the alternating sum over cyclic permutations of $X, Y, Z$. In general, for the torsion we may use any \((2, 1)\) tensor \(T\), skew-symmetric in \(X, Y\): \(T(X, Y) = -T(Y, X)\) but here we restrict to \emph{vector torsion} of the form \(T_V\).
+
+By the Leibniz rule, and tensorality of \(\nabla Y\) and \(^{V}\nabla Y\),
 \[
-\tilde{\nabla}_X Y - \tilde{\nabla}_Y X = T(X, Y) = g(V, X) Y - g(V, Y) X.
+A_V(X, Y) = ^{V}\nabla_X Y - \nabla_X Y
 \]
-Thus,
+is tensorial. By the Koszul formula \eqref{eq:koszul} and the Koszul formula for the Levi-Civita connection \(\nabla\) (for which \(V \equiv 0\)) we have
 \[
-\tilde{\nabla}_X Y = \nabla_X Y + g(V, X) Y.
+\begin{split}
+2 g(A_V(X, Y), Z) &= 2 g(^{V}\nabla_X Y - \nabla_X Y, Z) = -\operatorname{Alt} g(T_V (X, Z), Y) \\
+&= -g(g(V, X) Z + g(V, Z) X, Y) \\
+&+ g(g(V, Z) Y - g(V, Y) Z, X) \\
+&- g(g(V, Y) X + g(V, X) Y, Z) \\
+&= g(g(X, Y)V - g(V, Y)X, Z)
+\end{split}
 \]
-Note that on a two dimensional, closed manifold, if \(A(X, Y) = \nabla_X Y - \tilde{\nabla}_X Y\), then the existence of a vector field \(V\) such that \(A(X, Y) = g(V, X)Y\) is assured.
+Thus we have $A_V(X, Y) = g(X, Y) V - g(V, Y) X$ and hence
+\begin{equation}
+\label{eq:vector_connection}
+^{V}\nabla_X Y = \nabla_X Y + g(V, Y) X - g(X, Y) V
+\end{equation}
+provides an alternative, explicit expression to the Koszul formula \eqref{eq:koszul} for the unique, metric compatible connection with torsion \(T_V\).
+
+Note that metric compatibility of $^{V}\nabla$ is equivalent to the skew-symmetry,
+\[
+g(A_V(X, Y), Z) = - g(A_V(X, Z), Y).
+\]
+Then, given such \(A_V\), the connection \(^{V}\nabla_X Y = \nabla_X Y + A_V(X, Y)\) is a metric compatible connection with torsion \(T_V\) given by equation \eqref{eq:vector_torsion}.
+
+\begin{rem}
+On a two dimensional, closed manifold such skew-symmetry is enough to ensure the existence of a vector field \(V\) such that \(A(X, Y) = g(V, X)Y\) \cite[Theorem 3.1]{MR712664}. In other words, on a surface, all torsion vectors are vector torsion vectors. For higher dimensions, here we consider only vector torsion.
+\end{rem}
 
 In any case, the vector field \(V\) is required to evolve by
 \[
 \partial_t V = -(R - \bar{R}) V.
 \]
 
-For the Yamabe Yang-Mills flow, \(A\) is a connection on a \(U(1)\) bundle with curvature 2-form \(F\). If the \(U(1)\) bundle is trivial (vanishing first Chern class), then one may identify \(F\) with a two-form on \(M\) by precomposing with a global section of the bundle. In two dimensions, any such \(F\) satisfies \(\Tr_g F \otimes F = \tfrac{1}{2} \abs{F}^2\) where the trace contracts one slot of \(g\) with the second slot of the first \(F\) factor and the other slot of \(g\) with the second slot of the second \(F\) factor. \(A\) is required to evolve by
+\subsubsection*{Yamabe Yang-Mills flow}
+
+Here \(A\) is a connection on a \(U(1)\) bundle with curvature 2-form \(F\). If the \(U(1)\) bundle is trivial (vanishing first Chern class), then one may identify \(F\) with a two-form on \(M\) by precomposing with a global section of the bundle. In two dimensions, any such \(F\) satisfies \(\Tr_g F \otimes F = \tfrac{1}{2} \abs{F}^2\) where the trace contracts one slot of \(g\) with the second slot of the first \(F\) factor and the other slot of \(g\) with the second slot of the second \(F\) factor. \(A\) is required to evolve by
 \[
 \partial_t A = -d^{\ast} F.
 \]
