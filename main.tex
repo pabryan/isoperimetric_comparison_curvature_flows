@@ -160,11 +160,11 @@ At this level of generality, we cannot say anything more. The first line of each
 \end{rem}
 
 \begin{proof}
-Let \(\phi \leq_{x=x_0, t\leq t_0} I\) be smooth, lower supporting function, \(\Omega_0\) and isoperimetric domain for \((x_0, t_0)\) and \(\Omega_u\) a variation of \(\Omega_0\). Define,
+Let \(\phi \leq_{x=x_0, t\leq t_0} I\) be smooth, lower supporting function at \((x_0, t_0)\), \(\Omega_0\) an isoperimetric domain for \((x_0, t_0)\) and \(\Omega_u\) a variation of \(\Omega_0\). Define,
 \[
 \Phi(u, t) = \abs{\bdry{\Omega_u}}_t - \phi(\abs{\Omega_u}_t, t).
 \]
-Then \(\Phi\) is smooth and since \(\abs{\Omega_u}_t \geq I(\abs{\Omega_u}_t, t) \geq \phi(\abs{\Omega_u}_t, t)\), we have \(\Phi \geq 0\) for \(u \in (-\epsilon, \epsilon)\) and \(t \leq t_0\) along with \(\Phi(0, t_0) = 0\). Throughout this proof we tacitly make use of the variation formulae given in \Cref{lem:spatial_variation} and \Cref{lem:time_variation}.
+Then \(\Phi\) is smooth and since \(\abs{\bdry{\Omega_u}}_t \geq I(\abs{\Omega_u}_t, t) \geq \phi(\abs{\Omega_u}_t, t)\), we have \(\Phi \geq 0\) for \(u \in (-\epsilon, \epsilon)\) and \(t \leq t_0\) along with \(\Phi(0, t_0) = 0\). Throughout this proof we tacitly make use of the variation formulae given in \Cref{lem:spatial_variation} and \Cref{lem:time_variation}.
 
 At \((0, t_0)\), the first variation in \(u\) of \(\Phi\) vanishes giving,
 \[
@@ -184,7 +184,7 @@ Also, at \((0, t_0)\), the time variation is non-positive, and the second spatia
 \end{split}
 \]
 
-From the variation formulae in Lemmas \ref{lem:spatial_variation} and \ref{lem:time_variation}, and using equation \eqref{eq:viscosity_identities} we obtain
+From the variation formulae, and using equation \eqref{eq:viscosity_identities} we obtain
 \begin{align*}
 (\partial_t - \partial_u^2) \abs{\bdry{\Omega}} &= \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma - (\phi')^2 \phi, \\
 (\partial_t - \partial_u^2) \abs{\Omega_u} &= \int_{\Omega_0} \Tr_g \speed \mu - \phi \phi', \\
@@ -197,7 +197,7 @@ Putting this together we arrive at,
 \begin{split}
 \partial_t \phi &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{\sff}^2 + \ric(\nu, \nu) \right)\sigma - (\phi')^2 \phi \\
 &\quad - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \phi (\phi')^2 \\
-&\quad \phi^2 \phi'' -\partial_t \phi \\
+&\quad + \phi^2 \phi'' \\
 &= \phi^2 \phi'' + \int_{\bdry{\Omega_0}} \left(\abs{\sff}^2 + \ric(\nu, \nu)\right) \sigma - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma.
 \end{split}
 \]
