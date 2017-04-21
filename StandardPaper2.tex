@@ -1,3 +1,5 @@
+%% Packages
+
 %\usepackage{etoolbox}
 %\makeatletter
 %\let\ams@starttoc\@starttoc
@@ -28,6 +30,12 @@
 \usepackage{pictexwd,dcpic}
 
 \usepackage{graphicx}
+
+%% Paper specific macros
+\DeclareMathOperator{\speed}{h}
+
+
+%% Theorems
 
 \declaretheorem[name=Theorem,numberwithin=section]{thm}
 \declaretheorem[name=Remark,style=remark,sibling=thm]{rem}
@@ -125,6 +133,8 @@
 \DeclareMathOperator{\Rm}{Rm}
 \DeclareMathOperator{\weingarten}{\mathcal{W}}
 \DeclareMathOperator{\inj}{inj}
+\DeclareMathOperator{\Sc}{R}
+\DeclareMathOperator{\sff}{A}
 
 %Environments
 \newcommand{\Theo}[3]{\begin{#1}\label{#2} #3 \end{#1}}

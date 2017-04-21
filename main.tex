@@ -5,7 +5,7 @@
 \begin{document}
 
 \title[Isoperimetric Comparison]
- {Isoperimetric Comparisons For Intrinsic Curvture Flows}
+ {Isoperimetric Comparisons For Intrinsic Curvature Flows}
 
 \curraddr{}
 \email{}
@@ -26,7 +26,7 @@
 Let \(M\) be a smooth manifold and \(g = g_t\) a smooth one-parameter family of metrics evolving by,
 \begin{equation}
 \label{eq:dtg}
-\partial_t g = 2 X.
+\partial_t g = 2 \speed.
 \end{equation}
 
 The Isoperimetric Profile is defined by,
@@ -70,16 +70,16 @@ See \cite[Chapter 1]{Li:/2012}.
 \begin{lemma}
 \label{lem:time_variation}
 \[
-\partial_t \abs{\Omega_0} = \int_{\Omega_0} \Tr_g X \mu,
+\partial_t \abs{\Omega_0} = \int_{\Omega_0} \Tr_g \speed \mu,
 \]
 and
 \[
-\partial_t \abs{\bdry{\Omega_u}} = \int_{\bdry{\Omega_0}} \Tr_g X - X(\nu, \nu) \sigma.
+\partial_t \abs{\bdry{\Omega_u}} = \int_{\bdry{\Omega_0}} \Tr_g \speed - \speed(\nu, \nu) \sigma.
 \]
 \end{lemma}
 
 \begin{proof}
-The time variation of \(\abs{\Omega_0}\) may be computed from \(\partial_t \mu = \tfrac{1}{2} \Tr (g^{-1} \otimes 2X)\mu\).
+The time variation of \(\abs{\Omega_0}\) may be computed from \(\partial_t \mu = \tfrac{1}{2} \Tr (g^{-1} \otimes 2\speed)\mu\).
 
 For the time variation of \(\bdry{\Omega_0}\) we use the definition,
 \[
@@ -95,9 +95,9 @@ The second term is simple,
 \begin{equation}
 \label{eq:dtsigma2}
 \begin{split}
-\Tr(\nu \otimes \partial_t \mu) &= \Tr(\nu \otimes \Tr(g^{-1} \otimes X) \mu) \\
-&= \Tr(g^{-1} \otimes X) \Tr (\nu \otimes \mu) \\
-&= \Tr(g^{-1} \otimes X) \sigma.
+\Tr(\nu \otimes \partial_t \mu) &= \Tr(\nu \otimes \Tr(g^{-1} \otimes \speed) \mu) \\
+&= \Tr(g^{-1} \otimes \speed) \Tr (\nu \otimes \mu) \\
+&= \Tr(g^{-1} \otimes \speed) \sigma.
 \end{split}
 \end{equation}
 
@@ -113,12 +113,12 @@ From the first defining equation in \eqref{eq:normalequation} and the evolution 
 \]
 so that
 \[
-g(\partial_t \nu, \nu) = -X(\nu, \nu).
+g(\partial_t \nu, \nu) = -\speed(\nu, \nu).
 \]
 Thus we obtain,
 \begin{equation}
 \label{eq:dtsigma1}
-\Tr(\partial_t \nu \otimes \mu) = g(\partial_t \nu, \nu) \sigma = -X(\nu, \nu) \sigma.
+\Tr(\partial_t \nu \otimes \mu) = g(\partial_t \nu, \nu) \sigma = -\speed(\nu, \nu) \sigma.
 \end{equation}
 
 Substitution of \eqref{eq:dtsigma1} and \eqref{eq:dtsigma2} into \eqref{eq:dtsigma} completes the proof.
@@ -127,9 +127,9 @@ Substitution of \eqref{eq:dtsigma1} and \eqref{eq:dtsigma2} into \eqref{eq:dtsig
 \begin{rem}
 For the record, the second defining equation in \eqref{eq:normalequation}, the evolution of the metric, \eqref{eq:dtg} and \(\partial_t X = 0\) give
 \[
-g(\partial_t \nu, X) = -(\partial_t g) (\nu, X) - g(\nu, \partial_t X) = -2 X(\nu, X)
+g(\partial_t \nu, X) = -(\partial_t g) (\nu, X) - g(\nu, \partial_t X) = -2 \speed(\nu, X)
 \]
-which along with \(g(\partial_t \nu, \nu) = - X(\nu, \nu)\) completely determines \(\partial_t \nu\).
+which along with \(g(\partial_t \nu, \nu) = - \speed(\nu, \nu)\) completely determines \(\partial_t \nu\).
 \end{rem}
 
 \subsection{Viscosity Equation}
@@ -140,16 +140,16 @@ which along with \(g(\partial_t \nu, \nu) = - X(\nu, \nu)\) completely determine
 The isoperimetric profile is a viscosity super-solution of,
 \[
 \begin{split}
-\partial_t I &\geq I^2 I'' +  \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma  - I'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu)\right) \sigma \\
-&= I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(Tr_g X + R_{\Omega_0} - X(\nu, \nu) - \ric(\nu)\right) \sigma \\
-&\quad - \left(I'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
+\partial_t I &\geq I^2 I'' +  \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma  - I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma \\
+&= I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(Tr_g \speed + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right) \sigma \\
+&\quad - \left(I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
 \end{split}
 \]
 where \(\Omega_0 = \Omega_0(x_0, t_0)\) is an isoperimetric domain at \((x_0, t_0)\).
 \end{thm}
 
 \begin{rem}
-At this level of generality, we cannot say anything more. The first line of each equation depends on the speed \(X\) and it's relation to the ambient curvature along an (essentially unknown) isoperimetric domain. To go further we must specify the speed which we do later. More difficult to deal with is the second line, which also depends on the speed \(X\) but cannot be balanced against the other terms unless we can apply some (generally topological) argument to rewrite it as a boundary integral. We also address this issue below.
+At this level of generality, we cannot say anything more. The first line of each equation depends on the speed \(X\) and it's relation to the ambient curvature along an (essentially unknown) isoperimetric domain. To go further, we must specify the speed which we do later. More difficult to deal with is the second line, which also depends on the speed \(\speed\) but cannot be balanced against the other terms unless we can apply some (generally topological) argument to rewrite it as a boundary integral. We also address this issue below.
 \end{rem}
 
 \begin{proof}
@@ -179,8 +179,8 @@ Also, at \((0, t_0)\), the time variation is non-positive, and the second spatia
 
 From the variation formulae, and using \eqref{eq:viscosity_identities} we obtain
 \begin{align*}
-(\partial_t - \partial_u^2) \abs{\bdry{\Omega}} &= \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu) + \abs{A}^2 + \ric(\nu, \nu)\right) \sigma - (\phi')^2 \phi, \\
-(\partial_t - \partial_u^2) \abs{\Omega_u} &= \int_{\Omega_0} \Tr_g X \mu - \phi \phi', \\
+(\partial_t - \partial_u^2) \abs{\bdry{\Omega}} &= \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{A}^2 + \ric(\nu, \nu)\right) \sigma - (\phi')^2 \phi, \\
+(\partial_t - \partial_u^2) \abs{\Omega_u} &= \int_{\Omega_0} \Tr_g \speed \mu - \phi \phi', \\
 \intertext{and}
 \left(\partial_u \abs{\Omega_u}\right)^2 &= \phi^2.
 \end{align*}
@@ -188,10 +188,10 @@ From the variation formulae, and using \eqref{eq:viscosity_identities} we obtain
 Putting this together we arrive at,
 \[
 \begin{split}
-\partial_t \phi &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu) + \abs{A}^2 + \ric(\nu, \nu) \right)\sigma - (\phi')^2 \phi \\
-&\quad - \phi'\int_{\Omega_0} \Tr_g X \mu + \phi (\phi')^2 \\
+\partial_t \phi &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu) + \abs{A}^2 + \ric(\nu, \nu) \right)\sigma - (\phi')^2 \phi \\
+&\quad - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \phi (\phi')^2 \\
 &\quad \phi^2 \phi'' -\partial_t \phi \\
-&= \phi^2 \phi'' + \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma - \phi'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu)\right) \sigma.
+&= \phi^2 \phi'' + \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma.
 \end{split}
 \]
 The inequality in the theorem follows by the definition of viscosity super solution.
@@ -203,9 +203,9 @@ For the equality, we use the Gauss equation, which states,
 Thus we obtain,
 \[
 \begin{split}
-\partial_t \phi - \phi^2 \phi'' &\geq \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma  - \phi'\int_{\Omega_0} \Tr_g X \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g X - X(\nu, \nu)\right) \sigma \\
-&= (\phi')^2 \phi - \phi'\int_{\Omega_0} \Tr_g X \mu \\
-&\quad + \int_{\bdry{\Omega_0}} \left(-\ric(\nu) + R_{\Omega_0} - R_{\bdry{\Omega_0}} + \Tr_g X - X(\nu, \nu)\right) \sigma
+\partial_t \phi - \phi^2 \phi'' &\geq \int_{\bdry{\Omega_0}} \left(\abs{A}^2 + \ric(\nu, \nu)\right) \sigma  - \phi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} \left(\Tr_g \speed - \speed(\nu, \nu)\right) \sigma \\
+&= (\phi')^2 \phi - \phi'\int_{\Omega_0} \Tr_g \speed \mu \\
+&\quad + \int_{\bdry{\Omega_0}} \left(-\ric(\nu) + R_{\Omega_0} - R_{\bdry{\Omega_0}} + \Tr_g \speed - \speed(\nu, \nu)\right) \sigma
 \end{split}
 \]
 as required.
@@ -218,15 +218,15 @@ We can improve the theorem somewhat in two and three dimensions.
 In two dimensions,
 \[
 \begin{split}
-\partial_t I - I^2 I'' - I(I')^2 &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g X + R_{\Omega_0} - X(\nu, \nu) - \ric(\nu)\right)\sigma \\
-&\quad - I'\int_{\Omega_0} \Tr_g X \mu
+\partial_t I - I^2 I'' - I(I')^2 &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g X + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right)\sigma \\
+&\quad - I'\int_{\Omega_0} \Tr_g \speed \mu
 \end{split}
 \]
 while in three dimensions,
 \[
 \begin{split}
-\partial_t I - I^2 I'' - I(I')^2 &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g X + R_{\Omega_0} - X(\nu, \nu) - \ric(\nu)\right)\sigma \\
-&\quad - \left(I'\int_{\Omega_0} \Tr_g X \mu +  4\pi \chi(\bdry{\Omega_0})\right).
+\partial_t I - I^2 I'' - I(I')^2 &\geq \int_{\bdry{\Omega_0}} \left(\Tr_g \speed + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right)\sigma \\
+&\quad - \left(I'\int_{\Omega_0} \Tr_g \speed \mu +  4\pi \chi(\bdry{\Omega_0})\right).
 \end{split}
 \]
 \end{cor}
@@ -247,7 +247,7 @@ where \(\chi(\bdry{\Omega_0})\) denotes the Euler characteristic and we used tha
 \subsection{The Ricci Flow}
 \label{subsec:flows_ricci}
 
-The Ricci flow is the case where $X = -\ric$, and so $\Tr_g X = -R$. The viscosity equation in \Cref{thm:general_viscosity} looks quite appealing in this case:
+The Ricci flow is the case where $\speed = -\ric$, and so $\Tr_g \speed = -R$. The viscosity equation in \Cref{thm:general_viscosity} looks quite appealing in this case:
 \begin{equation}
 \label{eq:viscosity_ricciflow}
 \partial_t I \geq I^2I'' + I(I')^2 + \left(I'\int_{\Omega_0} R \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right).
@@ -277,12 +277,12 @@ Using \Cref{cor:low_dim_general_viscosity}, in three dimensions we have
 \partial_t I \geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu - 4\pi\chi(\bdry{\Omega_0}).
 \end{equation}
 
-Compared to the two dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstien-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
+Compared to the two-dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstien-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
 
 \subsection{The Conformal, Coupled Ricci Flow }
 \label{subsec:flows_ricci_coupled}
 
-Here we take \(X = -\ric + \varphi g\) where \(\varphi \in C^{\infty}(M)\) is a smooth function. One may ask more generally to add a symmetric two form in place of the conformal two form \(\varphi g\). This becomes rather more complicated, so we focus on the conformal case for the time being. The conformal factor \(\varphi\) evolves by a flow coupled to the metric flow,
+Here we take \(\speed = -\ric + \varphi g\) where \(\varphi \in C^{\infty}(M)\) is a smooth function. One may ask more generally to add a symmetric two form in place of the conformal two form \(\varphi g\). This becomes rather more complicated, so we focus on the conformal case for the time being. The conformal factor \(\varphi\) evolves by a flow coupled to the metric flow,
 \[
 \partial_t \varphi = v(g, \varphi)
 \]
@@ -305,7 +305,7 @@ which then induces the evolution
 
 For the normalised Ricci flow, the conformal factor is already just curvature, depending only on the metric, and hence we don't need to think of this as a coupled flow.
 
-Since \Cref{thm:general_viscosity} is linear in the speed \(X\), we simply add the conformal terms \(n \varphi\) coming from \(\Tr_g X\) and \(\varphi\) coming from \(X(\nu, \nu)\) to the Ricci flow viscosity equation \eqref{eq:viscosity_ricciflow} to obtain
+Since \Cref{thm:general_viscosity} is linear in the speed \(\speed\), we simply add the conformal terms \(n \varphi\) coming from \(\Tr_g \speed\) and \(\varphi\) coming from \(\speed(\nu, \nu)\) to the Ricci flow viscosity equation \eqref{eq:viscosity_ricciflow} to obtain
 \begin{equation}
 \label{eq:viscosity_conformalcoupledricciflow}
 \begin{split}
@@ -336,7 +336,7 @@ In three dimensions, equation \eqref{eq:3d_viscosity_ricciflow} becomes
 \subsection{The Yamabe Flow}
 \label{subsec:flows_yamabe}
 
-The Yamabe flow is the case \(X = -\tfrac{1}{n}(R - \bar{R})g\) where \(\bar{R} = \tfrac{1}{\abs{M}} \int_M R \mu\) is the average scalar curvature. Then \(\Tr_g X = -(R - \bar{R})\) and \(X(\nu, \nu) = -\tfrac{1}{n}(R - \bar{R})\). The viscosity equation in \Cref{thm:general_viscosity} is not quite as nice as the Ricci flow,
+The Yamabe flow is the case \(\speed = -\tfrac{1}{n}(R - \bar{R})g\) where \(\bar{R} = \tfrac{1}{\abs{M}} \int_M R \mu\) is the average scalar curvature. Then \(\Tr_g \speed = -(R - \bar{R})\) and \(\speed(\nu, \nu) = -\tfrac{1}{n}(R - \bar{R})\). The viscosity equation in \Cref{thm:general_viscosity} is not quite as nice as the Ricci flow,
 \[
 \begin{split}
 \partial_t I &\geq I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(-(R - \bar{R}) + R + \frac{1}{n}(R - \bar{R}) - \ric(\nu)\right) \sigma \\
@@ -365,7 +365,7 @@ In three dimensions, we only get a slight improvement,
 \subsection{The Coupled Yamabe Flow }
 \label{subsec:flows_yamabe_coupled}
 
-Here we take \(X = -(R - \bar{R}) + \varphi g\) where \(\varphi \in C^{\infty}(M)\) is a smooth function. The Yamabe flow is designed to flow metric within a fixed conformal class, so it makes perfect sense to only add a conformal factor to the evolution, and the adjective ``conformal'' becomes superfluous in this case.
+Here we take \(\speed = -(R - \bar{R}) + \varphi g\) where \(\varphi \in C^{\infty}(M)\) is a smooth function. The Yamabe flow is designed to flow metric within a fixed conformal class, so it makes perfect sense to only add a conformal factor to the evolution, and the adjective ``conformal'' becomes superfluous in this case.
 
 Particular examples are,
 \begin{align*}
@@ -388,7 +388,7 @@ In any case, the vector field \(V\) is required to evolve by
 \partial_t V = -(R - \bar{R}) V.
 \]
 
-For the Ricci Yang-Mills flow, \(A\) is a connection on a \(U(1)\) bundle with curvature 2-form \(F\). If the \(U(1)\) bundle is trivial, then one may identify \(F\) with a two-form on \(M\) by precomposing with a global section of the bundle. In two dimensions, any such \(F\) satisfies \(\Tr_g F \otimes F = \tfrac{1}{2} \abs{F}^2\) where the trace contracts one slot of \(g\) with the second slot of the first \(F\) factor and the other slot of \(g\) with the second slot of the second \(F\) factor. \(A\) is required to evolve by
+For the Ricci Yang-Mills flow, \(A\) is a connection on a \(U(1)\) bundle with curvature 2-form \(F\). If the \(U(1)\) bundle is trivial (vanishing first Chern class), then one may identify \(F\) with a two-form on \(M\) by precomposing with a global section of the bundle. In two dimensions, any such \(F\) satisfies \(\Tr_g F \otimes F = \tfrac{1}{2} \abs{F}^2\) where the trace contracts one slot of \(g\) with the second slot of the first \(F\) factor and the other slot of \(g\) with the second slot of the second \(F\) factor. \(A\) is required to evolve by
 \[
 \partial_t A = -d^{\ast} F.
 \]
@@ -405,22 +405,22 @@ Here we have a smooth, one parameter family of immersions, \(F_t : M^n \to N^{n+
 \]
 where \(\eta\) is a unit normal field to \(M_t = F_t(M)\), \(\weingarten\) is the Weingarten map and \(f\) is a curvature function. The metric evolves by
 \[
-\partial_t g = 2f(\weingarten) h
+\partial_t g = 2f(\weingarten) \sff
 \]
-where \(h\) is the second fundamental form. In other words,
+where \(\sff\) is the second fundamental form. In other words,
 \[
-X = f(\weingarten)h,
+\speed = f(\weingarten)\sff,
 \]
 and
 \[
-\Tr_g X = f H, \quad X(\nu, \nu) = f h(\nu, \nu).
+\Tr_g \speed = f H, \quad \speed (\nu, \nu) = f h(\nu, \nu).
 \]
 
 \Cref{thm:general_viscosity} now becomes
 \[
 \begin{split}
-\partial_t I &\geq I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(fH + R_{\Omega_0} - fh(\nu, \nu) - \ric(\nu)\right) \sigma \\
-&\quad - \left(I'\int_{\Omega_0} \Tr_g fH \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
+\partial_t I &\geq I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(fH + R_{\Omega_0} - f\sff(\nu, \nu) - \ric(\nu)\right) \sigma \\
+&\quad - \left(I'\int_{\Omega_0} fH \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right) .
 \end{split}
 \]
 
