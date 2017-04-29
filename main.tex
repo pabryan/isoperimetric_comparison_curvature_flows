@@ -260,6 +260,8 @@ The Ricci flow is the case where $\speed = -\ric$, and so $\Tr_g \speed = -R$. T
 \partial_t I \geq I^2I'' + I(I')^2 + \left(I'\int_{\Omega_0} R \mu - \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right).
 \end{equation}
 
+\subsubsection*{Two dimensional Ricci Flow}
+
 Using \Cref{cor:low_dim_general_viscosity}, in two dimensions this becomes,
 \[
 \partial_t I \geq I^2I'' + I(I')^2 + I'\int_{\Omega_0} R \mu.
@@ -273,10 +275,12 @@ and so we get,
 \label{eq:2d_viscosity_ricciflow}
 \begin{split}
 \partial_t I &\geq I^2I'' - I(I')^2 - 4\pi\chi(\Omega_0)I' \\
-&= \frac{1}{I^3} \Delta \ln I - 4\pi\chi(\Omega_0)I'.
+&= I^3 \Delta \ln I - 4\pi\chi(\Omega_0)I'.
 \end{split}
 \end{equation}
 Thus we arrive at a rather more usable differential inequality with the only unknown term coming from the topology of isoperimetric domains, which depends on \(x\). Rather complete results for the closed, two-dimensional case are described in \cite{Bryan:/2016,AndrewsBryan:/2010}.
+
+\subsubsection*{Three dimensional Ricci Flow}
 
 Using \Cref{cor:low_dim_general_viscosity}, in three dimensions we have
 \begin{equation}
@@ -286,6 +290,41 @@ Using \Cref{cor:low_dim_general_viscosity}, in three dimensions we have
 
 Compared to the two-dimensional case, the second to last term presents some difficulties since it cannot (in general) be written purely in terms of topological invariants. On the other hand, it is the Einstien-Hilbert functional on an isoperimetric domain and thus has nice properties, especially in relation to the Ricci flow that we may be able to exploit.
 
+The scalar curvature \(\R\) evolves according to
+\begin{equation}
+\label{eq:dg_ricci_scalar}
+\partial_t R = \Delta R + 2\abs{\tracefree{\ric}}^2 + \frac{2}{n} R^2
+\end{equation}
+where \(\tracefree{\ric} = \ric - \tfrac{1}{n} R g\) is the trace-free Ricci tensor. If the Ricci curvature is isostropic in the sense that \(\ric = \lambda g\) for some \(\lambda\), the necessarily \(\lambda = \tfrac{1}{n} R\) and so \(\tracefree{\ric} = 0\). This situation occurs for example when \(g\) has constant sectional curvature. In three dimensions, since the Weyl part of the Riemann curvature tensor vanishes, \(\tracefree{\ric} = 0\) if and only if \(g\) has constant sectional curvature.
+
+Let us consider the particular case that \(\ric > 0\). We know from Hamilton's seminal paper \cite{Hamilton:/1982} that the Ricci flow deforms any three-manifold of positive Ricci curvature to a constant sectional curvature metric, we obtain from \eqref{eq:dg_ricci_scalar}, the sharp inequality
+\[
+\partial_t R \geq \Delta R + \frac{2}{n} R^2
+\]
+with equality if and only if \(g\) has constant sectional curvature. By applying the maximum principle, we then obtain
+\begin{equation}
+\label{eq:ricci_R_bound}
+R \geq r_0(t) := \frac{1}{R_0^{-1} - \tfrac{2}{n} t}
+\end{equation}
+where \(R_0 = \inf_{x\in M} R(x, 0)\) is the infimum of the initial scalar curvature.
+
+Now by concavity of \(I\) (which follows from positive Ricci curvature \cite{MR875084}), \(I(0) = 0\) and positivity of \(I\) we may conlude that \(I' \geq 0\) on \([0, \abs{M}/2]\). The symmetry of \(I\) around \(\abs{M}/2\) implies we need not concern our self with the interval \([\abs{M}/2, \abs{M}]\); on this interval symmetric forces \(I'\leq 0\).
+
+Taking these considerations into account, substitution of \eqref{eq:ricci_R_bound} into the viscosity equation \eqref{eq:3d_viscosity_ricciflow} yields,
+\begin{equation}
+\label{eq:ricci_threed_iso_ineq}
+\partial_t I \geq I^2I'' + I(I')^2 + x r_0(t) I' - 4\pi\chi(\bdry{\Omega_0})
+\end{equation}
+
+Now let us take \(M\) simply connected. provided a suitable concave barrier exists, we may be able to assume \(\chi(\Omega_0) = 1\) \cite[Lemma 2.9 and Collaries]{Bryan:/2016}.
+
+\textbf{The issue here though is that \(M\) is three dimensional and simply connected and the lemma implies \(\bdry{\Omega_0}\) is connected. Simply connected ensures any closed curve is contractible hence bounds a simply connected region, but to conclude \(\bdry{\Omega_0}\) bounds a simply connected region seems to require higher vanishing homology. Maybe one can still bound \(\chi\)}
+
+Then we require a smooth concave function \(\varphi\) such that
+\[
+\partial_t \varphi \leq \varphi^2\varphi'' + \varphi(\varphi')^2 + x r_0(t) \varphi' - 4\pi.
+\]
+A trick used in \cite{Bryan:/2016} was to seek stationary solutions, but this is problematic here because of the \(r_0(t)\) term.
 \subsection{The Conformal, Coupled Ricci Flow }
 \label{subsec:flows_ricci_coupled}
 
