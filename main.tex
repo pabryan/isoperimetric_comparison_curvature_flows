@@ -363,15 +363,21 @@ Taking these considerations into account, substitution of \eqref{eq:ricci_R_boun
 \partial_t I \geq I^2I'' + I(I')^2 + x r_0(t) I' - 4\pi\chi(\bdry{\Omega_0})
 \end{equation}
 
-Now let us take \(M\) simply connected. provided a suitable concave barrier exists, we may be able to assume \(\chi(\Omega_0) = 1\) \cite[Lemma 2.9 and Collaries]{Bryan:/2016}.
+Now let us take \(M\) simply connected. Provided a suitable concave barrier exists, we would like to assume \(\chi(\bdry{\Omega_0}) = 1\) \cite[Lemma 2.9 and Corollaries]{Bryan:/2016}. Perhaps all we can assume however, is that \(\chi(\bdry{\Omega_0}) \leq 1\) which is true since \(\bdry{\Omega_0}\) is a closed surface and \(\chi(\bdry{\Omega_0}) = 2(1-\lambda)\) with \(\lambda = 0, 1, 2, 3, \cdots\) the genus.
 
-\textbf{The issue here though is that \(M\) is three dimensional and simply connected and the lemma implies \(\bdry{\Omega_0}\) is connected. Simply connected ensures any closed curve is contractible hence bounds a simply connected region, but to conclude \(\bdry{\Omega_0}\) bounds a simply connected region seems to require higher vanishing homology. Maybe one can still bound \(\chi\)}
+\textbf{The issue here though is that \(M\) is three dimensional and simply connected and the lemma implies \(\Omega_0\) is connected with connected complement. This doesn't seem to imply a bound on \(\chi(\bdry{\Omega_0})\).}
 
 Then we require a smooth concave function \(\varphi\) such that
 \[
 \partial_t \varphi \leq \varphi^2\varphi'' + \varphi(\varphi')^2 + x r_0(t) \varphi' - 4\pi.
 \]
-A trick used in \cite{Bryan:/2016} was to seek stationary solutions, but this is problematic here because of the \(r_0(t)\) term.
+
+\textbf{A trick used in \cite{Bryan:/2016} was to seek stationary solutions, but this is problematic here because of the \(r_0(t)\) term. One possible approach is to change variables
+\[
+\varphi(x, t) = \bar{\varphi}(x - \int_0^t r_0(t) dt, t)
+\]
+which will get rid of the \(r_0\) term but has the disadvantage that \(\varphi(0, t)\) could be negative for \(t > 0\) and that ruins the asymptotics at \(x = 0\) which are an essential part of the argument.}
+
 \subsection{The Conformal, Coupled Ricci Flow }
 \label{subsec:flows_ricci_coupled}
 
