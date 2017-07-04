@@ -255,13 +255,18 @@ Now we would like to come up with a comparison principle for the isoperimetric p
 \[
 \{(x, t) : 0 < x < \abs{M_t}, 0 \leq t < T\}
 \]
-where both \(\abs{M_t}\) and \(T\) depend on the particular one-parameter familyof metrics, \(g_t\) under consideration. Another difficulty is that the \emph{dependent variable} \(I\) has uncontrolled range, but we overcome that by the scaling of the profile.
+where both \(\abs{M_t}\) and \(T\) depend on the particular one-parameter family of metrics, \(g_t\) under consideration. We overcome this by an appropriate change of \emph{independent variables.} Another difficulty is that the \emph{dependent variable} \(I\) has uncontrolled range, which we overcome by the scaling of the profile.
 
 \begin{thm}
-Let \(\bar{\varphi}\) satisfy
+Let \(\bar{\varphi} : [0, 1] \times [0, \infty) \to \R\) satisfy
 \[
 \partial_t \bar{\varphi} \leq 
 \]
+and define
+\[
+\varphi(x, t) = \abs{M_t}^{1-1/n} \bar{\varphi} \left(\frac{x}{\abs{M_t}}, \int_0^t \abs{M_t}^{-1} dt\right).
+\]
+If \(\varphi(x, 0) \leq I(x, 0)\) for every \(x \in [0, \abs{M_0}]\), then \(\varphi(x, t) \leq I(x, 0)\) for every \(x \in [0, \abs{M_0}]\) and \(t \in [0, T)\).
 \end{thm}
 
 \begin{proof}
@@ -275,7 +280,7 @@ Let us write \(y = \frac{x}{\abs{M_t}}\) and \(\tau(t) = \int_0^t \abs{M_t}^{-1}
 The time derivative is,
 \[
 \begin{split}
-\partial_t \varphi &= \abs{M_t}^{-1/n}\left[\partial_{\tau} \bar{\varphi} + \int_M \Tr_g \speed \mu \left(\frac{n-1}{n} \bar{\varphi} - \frac{x}{\abs{M_t}} \bar{\varphi}'\right)\right].
+\partial_t \varphi &= \abs{M_t}^{-1/n}\left[\partial_{\tau} \bar{\varphi} + \left(\frac{n-1}{n} \bar{\varphi} - \frac{x}{\abs{M_t}} \bar{\varphi}'\right) \int_M \Tr_g \speed \mu \right].
 \end{split}
 \]
 The spatial derivatives are
@@ -286,13 +291,40 @@ The spatial derivatives are
 Then we have
 \[
 \begin{split}
-\partial_t \varphi - \varphi^2 \varphi'' - \varphi(\varphi')^2 &= \abs{M_t}^{-1/n}\left[\partial_{\tau} \bar{\varphi} + \int_M \Tr_g \speed \mu \left(\frac{n-1}{n} \bar{\varphi} - \frac{x}{\abs{M_t}} \bar{\varphi}'\right)\right] \\
+\partial_t \varphi - \varphi^2 \varphi'' - \varphi(\varphi')^2 &= \abs{M_t}^{-1/n}\left[\partial_{\tau} \bar{\varphi} + \left(\frac{n-1}{n} \bar{\varphi} - \frac{x}{\abs{M_t}} \bar{\varphi}'\right) \int_M \Tr_g \speed \mu \right] \\
 &\quad - \abs{M_t}^{2-2/n} \bar{\varphi}^2 \abs{M_t}^{-1-1/n} \bar{\varphi}'' - \abs{M_t}^{1-1/n} \bar{\varphi} \abs{M_t}^{-2/n} (\bar{\varphi}')^2 \\
-&= \abs{M_t}^{-1/n}\left[\partial_{\tau} \bar{\varphi} + \int_M \Tr_g \speed \mu \left(\frac{n-1}{n} \bar{\varphi} - \frac{x}{\abs{M_t}} \bar{\varphi}'\right) - \abs{M_t}^{1-2/n} \left(\bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi} (\bar{\varphi}')^2\right)\right]
+&= \abs{M_t}^{-1/n}\biggl[\partial_{\tau} \bar{\varphi} + \left(\frac{n-1}{n} \bar{\varphi} - \frac{x}{\abs{M_t}} \bar{\varphi}'\right) \int_M \Tr_g \speed \mu \\
+&\quad - \abs{M_t}^{1-2/n} \left(\bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi} (\bar{\varphi}')^2\right)\biggr]
 \end{split}
 \]
 
 \textbf{Something is funny here. The \(\abs{M_t}^{1-2/n}\) term dissappears only when \(n=2\). Otherwise it is very awkward. For arbitrary dimension \(n\), one could take \(\varphi = \abs{M_t}^{1/2} \bar{\varphi}\) to get rid of that term, but this is the wrong scaling. Not sure what to do about this.}
+
+Suppose the conclusion were false. There is an \(x_0 \in (0, 1)\) and \(t_0 \in (0, T))\) such that
+\[
+\varphi(x, t) \leq I(x, t), \quad x \in (0, 1), t \in [0, t_0], \quad \text{ and } \varphi(x_0, t_0) = I(x_0, t_0).
+\]
+Recall from Theorem \ref{thm:general_viscosity} that the isoperimetric profile is a viscosity solution of
+\[
+\begin{split}
+\partial_t I &\geq I^2 I'' +  (I')^2 I + \int_{\bdry{\Omega_0}} \left(Tr_g \speed + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right) \sigma \\
+&\quad - \left(I'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right).
+\end{split}
+\]
+Therefore since \(\varphi\) is lower supporting at \((x_0, t_0)\),
+\[
+\begin{split}
+\partial_t \varphi - \varphi^2 \varphi'' -  (\varphi')^2 \varphi &\geq \int_{\bdry{\Omega_0}} \left(Tr_g \speed + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right) \sigma \\
+&\quad - \left(\varphi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right).
+\end{split}
+\]
+
+Thus we get a contradiction if
+\begin{multline*}
+\partial_{\tau} \bar{\varphi} + \left(\frac{n-1}{n} \bar{\varphi} - y \bar{\varphi}'\right) \int_M \Tr_g \speed \mu - \abs{M_t}^{1-2/n} \left(\bar{\varphi}^2 \bar{\varphi}'' - \bar{\varphi} (\bar{\varphi}')^2\right) < \\
+\abs{M_t}^{1/n}\int_{\bdry{\Omega_0}} \left(Tr_g \speed + R_{\Omega_0} - \speed(\nu, \nu) - \ric(\nu)\right) \sigma \\
+- \abs{M_t}^{1/n} \left(\varphi'\int_{\Omega_0} \Tr_g \speed \mu + \int_{\bdry{\Omega_0}} R_{\bdry{\Omega_0}}\sigma \right).
+\end{multline*}
 \end{proof}
 
 \section{Examples of Flows}
